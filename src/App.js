@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Route, Switch, NavLink} from 'react-router-dom' 
+import base, {auth} from './base'
 
 class App extends Component {
   render() {
@@ -9,6 +11,11 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Let's party</h2>
+          <ul className='nav-links'>
+            <li>
+              <NavLink to='/nope'/>
+              </li>
+              </ul>
         </div>
         
       </div>
