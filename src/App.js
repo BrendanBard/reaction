@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Route, Switch, NavLink} from 'react-router-dom' 
 import base, {auth} from './base.js'
+import DisplayInput from './DisplayInput.js'
 
 class App extends Component {
   constructor(){
@@ -18,16 +19,15 @@ class App extends Component {
     this.setState({ name })
     const id = Date.now()
     this.setState({id})
-
-    
+    document.getElementById('input').value = ''
+    this.firebaseSync(id)
   }
   
-  componenetDidMount= () =>{
-    
-  }
-  firebaseSync = () =>{
+ 
+
+  firebaseSync = (id) =>{
     base.syncState(
-      `${this.state.id}`,
+      id.toString(),
       {
       context: this,
       state: 'name'
@@ -46,8 +46,9 @@ class App extends Component {
         <form className="user-input"  onSubmit={this.handleSubmit}>
         <input type='text' id='input' className='name'/>
         <button className='submit-button' type='submit' >Submit</button>
-        <button onClick={this.firebaseSync} >Send</button>
+        
         </form>
+        
         
       </div>
     );
