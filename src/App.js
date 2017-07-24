@@ -21,6 +21,7 @@ class App extends Component {
     this.setState({id})
     document.getElementById('input').value = ''
     this.firebaseSync(id)
+    const pastInput = {...this.state}
   }
   
  
@@ -46,7 +47,7 @@ class App extends Component {
         <form className="user-input"  onSubmit={this.handleSubmit}>
         <input type='text' id='input' className='name'/>
         <button className='submit-button' type='submit' >Submit</button>
-        
+        <DisplayInput name={this.state.name}/>
         </form>
         
         

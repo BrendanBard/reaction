@@ -1,4 +1,11 @@
 import React from 'react'
-const DisplayInput = () =>{
+import app from './App.js'
+const DisplayInput = (props) =>{
 
+return(
+    <div>
+        <ul>{props.name}</ul>
+    </div>
+)
 }
+export default DisplayInput
