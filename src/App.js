@@ -8,7 +8,7 @@ class App extends Component {
   constructor(){
     super()
     this.state ={
-      name: {},
+      name: '',
       id: ''
     }
   }
@@ -18,20 +18,22 @@ class App extends Component {
     this.setState({ name })
     const id = Date.now()
     this.setState({id})
+
+    
   }
   
   componenetDidMount= () =>{
     
-     base.syncState(
-      'inputValue',
+  }
+  firebaseSync = () =>{
+    base.syncState(
+      `${this.state.id}`,
       {
-      context: this.state,
+      context: this,
       state: 'name'
     }
     )
-  }
-  consoleLog = () =>{
-    console.log(this.state)
+    
   }
   
   render() {
@@ -44,13 +46,9 @@ class App extends Component {
         <form className="user-input"  onSubmit={this.handleSubmit}>
         <input type='text' id='input' className='name'/>
         <button className='submit-button' type='submit' >Submit</button>
-        <button onClick={this.consoleLog} >click </button>
+        <button onClick={this.firebaseSync} >Send</button>
         </form>
-        <ul className='nav-links'>
-            <li>
-              
-              </li>
-              </ul>
+        
       </div>
     );
   }
