@@ -8,19 +8,19 @@ class App extends Component {
   constructor(){
     super()
     this.state ={
-      name: '',
+      name: {},
       id: null
     }
   }
   handleSubmit = (ev) =>{
-   ev.preventDefault()
+   ev.preventDefault() 
    this.inputState()
-   console.log(this.state)
   }
   inputState = () => {
-    const f = document.getElementById('input').value
-    this.name = f
-    this.id = Date.now()
+    const name = document.getElementById('input').value
+    this.setState({ name })
+    const id = Date.now()
+    this.setState({ id })
   }
   
   render() {
