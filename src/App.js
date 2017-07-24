@@ -9,18 +9,29 @@ class App extends Component {
     super()
     this.state ={
       name: {},
-      id: null
+      id: ''
     }
   }
   handleSubmit = (ev) =>{
    ev.preventDefault() 
-   this.inputState()
-  }
-  inputState = () => {
-    const name = document.getElementById('input').value
+   const name = document.getElementById('input').value
     this.setState({ name })
     const id = Date.now()
-    this.setState({ id })
+    this.setState({id})
+  }
+  
+  componenetDidMount= () =>{
+    
+     base.syncState(
+      'inputValue',
+      {
+      context: this.state,
+      state: 'name'
+    }
+    )
+  }
+  consoleLog = () =>{
+    console.log(this.state)
   }
   
   render() {
@@ -30,9 +41,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Let's party</h2>
         </div>
-        <form className="user-input">
+        <form className="user-input"  onSubmit={this.handleSubmit}>
         <input type='text' id='input' className='name'/>
-        <button className='submit-button' type='submit' onClick={this.handleSubmit}>Submit</button>
+        <button className='submit-button' type='submit' >Submit</button>
+        <button onClick={this.consoleLog} >click </button>
         </form>
         <ul className='nav-links'>
             <li>
