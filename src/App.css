@@ -48,7 +48,9 @@ html{
 }
 
 .name{
- 
+ border: 2px solid whitesmoke;
+ color: whitesmoke;
+ background-color: transparent;
 }
 .submit-button:hover{
   background-color:darkgray;
