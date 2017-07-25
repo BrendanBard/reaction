@@ -1,17 +1,22 @@
 .App {
   text-align: center;
+  background-color:transparent;
+ 
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
+.App-logo:hover {
+animation: App-logo-reverse infinite 20s linear;
+}
 
 .App-header {
-  background-color: #222;
+  background-color: transparent;
   height: 150px;
   padding: 20px;
-  color: white;
+  color:whitesmoke;
 }
 
 .App-intro {
@@ -21,4 +26,36 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+@keyframes App-logo-reverse{
+  from { transform: rotate(360deg); }
+  to{transform: rotate(0deg); }
+}
+
+html{
+   background: url("https://images.pexels.com/photos/519663/pexels-photo-519663.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb") no-repeat center left fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container{
+  
+}
+.user-input{
+ 
+}
+
+.name{
+ 
+}
+.submit-button:hover{
+  background-color:darkgray;
+  opacity: .6;
+  color: white;
+}
+.submit-button{
+  background-color: transparent; 
+  color:whitesmoke;
 }

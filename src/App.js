@@ -22,6 +22,8 @@ class App extends Component {
     document.getElementById('input').value = ''
     this.firebaseSync(id)
     const pastInput = {...this.state}
+    
+
   }
   
  
@@ -42,14 +44,21 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Let's party</h2>
+          <h2>Party on, Wayne</h2>
         </div>
+        <body>
+        <div className='container'>
         <form className="user-input"  onSubmit={this.handleSubmit}>
         <input type='text' id='input' className='name'/>
         <button className='submit-button' type='submit' >Submit</button>
         <DisplayInput name={this.state.name}/>
         </form>
-        
+        </div>
+        <p className='background'>
+        </p>
+
+
+        </body>
         
       </div>
     );
