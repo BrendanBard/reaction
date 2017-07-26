@@ -1,9 +1,10 @@
 import React from 'react'
 import app from './App.js'
 const DisplayInput = (props) =>{
+    var allInput = [props]
 return(
     <div>
-        <ul>{props.name}</ul>
+        <ul>MAGICAL STUFF</ul>
         
     </div>
 )

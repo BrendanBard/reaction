@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Route, Switch, NavLink} from 'react-router-dom' 
+import {Route, Switch, NavLink,Link} from 'react-router-dom' 
 import base, {auth} from './base.js'
 import DisplayInput from './DisplayInput.js'
+
 
 class App extends Component {
   constructor(){
@@ -22,7 +23,7 @@ class App extends Component {
     document.getElementById('input').value = ''
     this.firebaseSync(id)
     const pastInput = {...this.state}
-    
+    this.props.history.push(`/data`)
 
   }
   
@@ -50,12 +51,16 @@ class App extends Component {
         <div className='container'>
         <form className="user-input"  onSubmit={this.handleSubmit}>
         <input type='text' id='input' className='name'/>
-        <button className='submit-button' type='submit' >Submit</button>
-        <DisplayInput name={this.state.name}/>
+        <Link to='/data'><button className='submit-button' type='submit' >Submit</button></Link> 
+        
         </form>
         </div>
-        <p className='background'>
-        </p>
+       <div>
+         
+         <Switch>
+        <Route path='/data' component={DisplayInput}/>
+        </Switch>
+      </div>
 
 
         </body>
