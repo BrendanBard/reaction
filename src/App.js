@@ -47,7 +47,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Party on, Wayne</h2>
         </div>
-        <body>
+        
         <div className='container'>
         <form className="user-input"  onSubmit={this.handleSubmit}>
         <input type='text' id='input' className='name'/>
@@ -63,7 +63,7 @@ class App extends Component {
       </div>
 
 
-        </body>
+        
         
       </div>
     );
