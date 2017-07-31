@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import base from './base.js'
 
 class NasaPicture extends Component{
     constructor(props){

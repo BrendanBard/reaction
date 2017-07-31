@@ -7,38 +7,8 @@ import DisplayInput from './DisplayInput.js'
 
 
 class App extends Component {
-  constructor(){
-    super()
-    this.state ={
-      name: '',
-      id: '',
-      symbol:''
-    }
-  }
-  handleSubmit = (ev) =>{
-   ev.preventDefault() 
-   const name = document.getElementById('input').value
-    this.setState({ name })
-    const id = Date.now()
-    this.setState({id})
-    document.getElementById('input').value = ''
-    this.firebaseSync(id)
-    const pastInput = {...this.state}
-    
-  }
   
  
-
-  firebaseSync = (id) =>{
-    base.syncState(
-      id.toString(),
-      {
-      context: this,
-      state: 'name'
-    }
-    )
-    
-  }
   
   render() {
     return (
@@ -50,10 +20,9 @@ class App extends Component {
         
         <div className='container'>
         <form className="user-input"  onSubmit={this.handleSubmit}>
-        <input type='text' id='input' className='name'/>
         <Link to='/data'><button className='submit-button' type='submit' >Submit</button></Link> 
         </form>
-        <DisplayInput symbol={this.state.symbol} />
+        <br></br>
         </div>
        <div>
          
