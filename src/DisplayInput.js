@@ -1,23 +1,34 @@
 import React, {Component} from 'react'
-import app from './App.js'
-
+import { Route } from 'react-router-dom'
+import NasaPicture from './NasaPicture'
 class DisplayInput extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            pastes: {}
+    
+        
+        state = {
+            date: '',
         }
-         this.fetchPaste(props)
+         
+    
+    handleChanges = (ev) => {
+        this.setState({date: ev.target.value})
     }
-    fetchPaste = (props) =>{
-        fetch('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=9JCA1A3V5HI4VZJ1')
-        .then(data => data.json())
-        .then(pastes => this.setState({pastes}))
+    
+    
+    handleSubmit = (ev) =>{
+        ev.preventDefault()
+         this.props.history.push(`/Nasa/${this.state.date}`)
+        this.setState({date: ''})
     }
+    
     render (){
+        const {picture} = this.state
         return(
-        <div>
-            <ul>{this.pastes}</ul>
+            <div>
+            <form onSubmit={this.handleSubmit}>
+        <input type='date' value={this.state.date} onChange={this.handleChanges}/>
+        </form>
+         <Route exact path ='/data' render={() => <h3>Please enter a date to view</h3>} />
+         <Route path='/Nasa/:date' component={NasaPicture}/>
         </div>
         )
     }

@@ -11,7 +11,8 @@ class App extends Component {
     super()
     this.state ={
       name: '',
-      id: ''
+      id: '',
+      symbol:''
     }
   }
   handleSubmit = (ev) =>{
@@ -23,8 +24,7 @@ class App extends Component {
     document.getElementById('input').value = ''
     this.firebaseSync(id)
     const pastInput = {...this.state}
-    this.props.history.push(`/data`)
-
+    
   }
   
  
@@ -52,8 +52,8 @@ class App extends Component {
         <form className="user-input"  onSubmit={this.handleSubmit}>
         <input type='text' id='input' className='name'/>
         <Link to='/data'><button className='submit-button' type='submit' >Submit</button></Link> 
-        
         </form>
+        <DisplayInput symbol={this.state.symbol} />
         </div>
        <div>
          
