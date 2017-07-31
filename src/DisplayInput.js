@@ -14,7 +14,9 @@ class DisplayInput extends Component {
         this.props.history.push(`/data/${this.state.date}`)
         this.setState({ date: '' })
     }
-
+    handleChange =(ev) => {
+        this.setState({date: ev.target.value})
+    }
     // handleSubmit = (ev) => {
     //     this.setState({ date: ev.target.value })
     //     ev.preventDefault()
@@ -25,7 +27,7 @@ class DisplayInput extends Component {
     //     document.getElementById('input').value = ''
     //     this.firebaseSync(id)
     // }
-
+    
 
 
     
@@ -34,7 +36,8 @@ class DisplayInput extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input className='input' type='date' value={this.state.date} onChange={this.handleChanges} />
+                    {/*value={this.state.date}*/}
+                    <input className='input' type='date'  onChange={this.handleChanges} />
                     <button className='go-button' type='submit' >Go</button>
                 </form>
                 <Route exact path='/data' render={() => <h3 id='idle'>Please enter a date to view</h3>} />

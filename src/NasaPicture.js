@@ -5,7 +5,8 @@ class NasaPicture extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            picture: {}
+            id:'',
+            picture: {},
         }
         
         this.fetchNasaPicture(props)
@@ -24,10 +25,14 @@ class NasaPicture extends Component {
             this.fetchNasaPicture(nextProps)
         }
     }
+    componentWillMount=()=>{
+        this.setState({id: Date.now()})
+        this.firebaseSync()
+    }
 
-    firebaseSync = (id) => {
-        base.syncState(
-            id.toString(),
+    firebaseSync = () => {
+        this.bindingRef = base.syncState(
+            `${Date.now()}/${this.state.id}`,
             {
                 context: this,
                 state: 'picture.title'
@@ -37,8 +42,7 @@ class NasaPicture extends Component {
     }
     render() {
         const { picture } = this.state
-        const dateForId = picture.date
-        console.log(dateForId)
+        
         return (
             <div className='nasa-picture'>
                 <h2> {picture.title}</h2>
