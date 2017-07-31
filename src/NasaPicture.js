@@ -1,37 +1,53 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import base from './base.js'
 
-class NasaPicture extends Component{
-    constructor(props){
+class NasaPicture extends Component {
+    constructor(props) {
         super(props)
-        this.state ={
+        this.state = {
             picture: {}
         }
+        
         this.fetchNasaPicture(props)
+        
     }
-    fetchNasaPicture(props){
+    
+
+    fetchNasaPicture(props) {
         fetch(`https://api.nasa.gov/planetary/apod?api_key=04lUIaBxRPWv48DH9pXNWNvYKZuLpESlZESvxM8G`)
-        .then(data => data.json())
-        .then(picture => this.setState({picture}))
+            .then(data => data.json())
+            .then(picture => this.setState({ picture }))
     }
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         const locationChanged = nextProps.locations !== this.props.location
-        if(locationChanged){
+        if (locationChanged) {
             this.fetchNasaPicture(nextProps)
         }
     }
-    render(){
-        const {picture} =this.state
 
-        return(
+    firebaseSync = (id) => {
+        base.syncState(
+            id.toString(),
+            {
+                context: this,
+                state: 'picture.title'
+            }
+        )
+
+    }
+    render() {
+        const { picture } = this.state
+        const dateForId = picture.date
+        console.log(dateForId)
+        return (
             <div className='nasa-picture'>
                 <h2> {picture.title}</h2>
-                <img className='image' src={picture.hdurl}/>
+                <img className='image' src={picture.hdurl} />
                 <h3> {picture.date}</h3>
                 <h3> {picture.explanation}</h3>
-                </div>
+            </div>
         )
     }
 }
 
-    export default NasaPicture
+export default NasaPicture

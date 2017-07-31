@@ -47,6 +47,10 @@ html{
  
 }
 
+.nav-links a.active {
+  visibility: hidden !important; 
+}
+
 .name{
  border: 2px solid whitesmoke;
  color: whitesmoke;

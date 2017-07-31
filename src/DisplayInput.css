@@ -6,3 +6,12 @@
 #idle{
     color: whitesmoke;
 }
+.go-button:hover{
+  background-color:darkgray;
+  opacity: .6;
+  color: white;
+}
+.go-button{
+  background-color: transparent; 
+  color:whitesmoke;
+}

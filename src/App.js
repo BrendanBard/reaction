@@ -20,7 +20,7 @@ class App extends Component {
         
         <div className='container'>
         <form className="user-input"  onSubmit={this.handleSubmit}>
-        <Link to='/data'><button className='submit-button' type='submit' >Submit</button></Link> 
+        <NavLink to='/data'><button className='submit-button' type='submit' >Submit</button></NavLink> 
         </form>
         <br></br>
         </div>

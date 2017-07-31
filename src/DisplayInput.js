@@ -11,7 +11,7 @@ class DisplayInput extends Component {
 
     handleSubmit = (ev) => {
         ev.preventDefault()
-        this.props.history.push(`/Nasa/${this.state.date}`)
+        this.props.history.push(`/data/${this.state.date}`)
         this.setState({ date: '' })
     }
 
@@ -28,22 +28,14 @@ class DisplayInput extends Component {
 
 
 
-    firebaseSync = (id) => {
-        base.syncState(
-            id.toString(),
-            {
-                context: this,
-                state: 'title'
-            }
-        )
-
-    }
+    
     render() {
         const { picture } = this.state
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <input className='input' type='date' value={this.state.date} onChange={this.handleChanges} />
+                    <button className='go-button' type='submit' >Go</button>
                 </form>
                 <Route exact path='/data' render={() => <h3 id='idle'>Please enter a date to view</h3>} />
                 <Route path='/data/:date' component={NasaPicture} />
