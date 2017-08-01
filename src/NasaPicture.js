@@ -35,8 +35,11 @@ class NasaPicture extends Component {
             `${Date.now()}/${this.state.id}`,
             {
                 context: this,
-                state: 'picture.title'
-            }
+                state: 'picture.title' ,
+                
+            },
+            
+            
         )
 
     }
