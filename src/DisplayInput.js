@@ -19,6 +19,8 @@ class DisplayInput extends Component {
     handleChange = (ev) => {
         const dateInput = document.getElementById('dateInput').value
         this.setState({ date: dateInput })
+        const insideDate = document.getElementById('dateInput')
+        insideDate.value = this.state.date
     }
 
     render() {
@@ -26,7 +28,6 @@ class DisplayInput extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input className='input' type='date' value={this.state.date} id='dateInput' onChange={this.handleChanges} />
                     <NavLink to='/data/``'><button className='go-button' type='submit' >Go</button></NavLink>
                 </form>
                 <Switch>

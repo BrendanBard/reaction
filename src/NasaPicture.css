@@ -2,10 +2,14 @@ h2{
     color: whitesmoke;
 }
 .image{
-    height: 150px;
-    width: 150px;
+    height: 250px;
+    width: 250px;
+    border: 1px solid whitesmoke;
 }
 
+h4{
+    color: whitesmoke;
+}
 h3{
     color: whitesmoke;
 }

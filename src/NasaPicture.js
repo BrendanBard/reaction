@@ -27,7 +27,9 @@ class NasaPicture extends Component {
         }
     }
     componentWillMount=()=>{
+        
         this.setState({id: Date.now()})
+        if(Date.now() >= (Date.now() + 86400000))
         this.firebaseSync()
     }
 
@@ -37,7 +39,6 @@ class NasaPicture extends Component {
             {
                 context: this,
                 state: 'picture' ,
-                
             },
         )
     }
@@ -49,7 +50,7 @@ class NasaPicture extends Component {
                 <h2> {picture.title}</h2>
                 <img alt='nuts to you' className='image' src={picture.hdurl} />
                 <h3> {picture.date}</h3>
-                <h3> {picture.explanation}</h3>
+                <h4> {picture.explanation}</h4>
             </div>
         )
     }
