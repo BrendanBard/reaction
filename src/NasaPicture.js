@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import base from './base.js'
+import './NasaPicture.css'
 
 class NasaPicture extends Component {
     constructor(props) {
@@ -35,13 +36,10 @@ class NasaPicture extends Component {
             `${Date.now()}/${this.state.id}`,
             {
                 context: this,
-                state: 'picture.title' ,
+                state: 'picture' ,
                 
             },
-            
-            
         )
-
     }
     render() {
         const { picture } = this.state
@@ -49,7 +47,7 @@ class NasaPicture extends Component {
         return (
             <div className='nasa-picture'>
                 <h2> {picture.title}</h2>
-                <img className='image' src={picture.hdurl} />
+                <img alt='nuts to you' className='image' src={picture.hdurl} />
                 <h3> {picture.date}</h3>
                 <h3> {picture.explanation}</h3>
             </div>
