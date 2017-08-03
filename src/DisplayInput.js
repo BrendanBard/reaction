@@ -32,7 +32,7 @@ class DisplayInput extends Component {
                 </form>
                 <Switch>
                 <Route exact path='/data' render={() => <h3 id='idle'>Please enter a date to view</h3>} />
-                <Route path='/data/:date' component={NasaPicture} />
+                <Route path='/data/:date' render={() => (<NasaPicture />)} />
                 </Switch>
             </div>
         )

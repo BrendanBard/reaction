@@ -13,8 +13,8 @@
 animation: App-logo-reverse infinite 20s linear;
 }
 
-#root {
-  background: url("https://images.pexels.com/photos/459737/pexels-photo-459737.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb") no-repeat cetner left fixed !important;
+.app-header {
+  background: url("https://images.pexels.com/photos/459737/pexels-photo-459737.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb") no-repeat center left fixed !important;
   height: 150px;
   padding: 20px;
   color:whitesmoke;

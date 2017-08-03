@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import { Route, Switch, NavLink, Link } from 'react-router-dom'
 import base, { auth } from './base.js'
 import DisplayInput from './DisplayInput.js'
+import './App.css';
 
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Party on, Wayne</h2>
         </div>
-        <body>
+        
           <div className='container'>
             <form className="user-input" onSubmit={this.handleSubmit}>
               <NavLink to='/data'><button className='submit-button' type='submit' >Submit</button></NavLink>
@@ -30,7 +30,7 @@ class App extends Component {
               <Route path='/data' component={DisplayInput} />
             </Switch>
           </div>
-        </body>
+       
 
 
 
