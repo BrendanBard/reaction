@@ -29,7 +29,7 @@ class NasaPicture extends Component {
     componentWillMount=()=>{
         
         this.setState({id: Date.now()})
-        if(Date.now() >= (Date.now() + 86400000))
+        if(Date.now() >= (Date.now() + 28800000))
         this.firebaseSync()
     }
 
